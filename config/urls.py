@@ -6,8 +6,6 @@ from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
-from django.views import defaults as default_views
-
 urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='pages/home.html'), name='home'),
     url(r'^about/$', TemplateView.as_view(template_name='pages/about.html'), name='about'),
@@ -18,11 +16,16 @@ urlpatterns = [
     # User management
     url(r'^users/', include('news.users.urls', namespace='users')),
     url(r'^accounts/', include('allauth.urls')),
+    # Third-party apps urls
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^rest-auth/', include('rest_auth.urls'))
 
     # Your stuff: custom urls includes go here
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+from django.views import defaults as default_views
+
 
 if settings.DEBUG:
     # This allows the error pages to be debugged during development, just visit
