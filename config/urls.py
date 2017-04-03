@@ -18,9 +18,10 @@ urlpatterns = [
     url(r'^accounts/', include('allauth.urls')),
     # Third-party apps urls
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url(r'^rest-auth/', include('rest_auth.urls'))
+    url(r'^rest-auth/', include('rest_auth.urls')),
 
     # Your stuff: custom urls includes go here
+    url(r'^api/', include('api.urls', namespace='api')),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
