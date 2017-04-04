@@ -267,8 +267,8 @@ AUTHENTICATION_BACKENDS = [
 # Some really nice defaults
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
-# ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+# ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 
@@ -293,6 +293,10 @@ ADMIN_URL = r'^admin/'
 ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = False
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_USERNAME_VALIDATORS = None
+ACCOUNT_CONFIRM_EMAIL_ON_GET = True
 
 # Your common stuff: Below this line define 3rd party library settings
 # ------------------------------------------------------------------------------
+
+
+
