@@ -6,6 +6,8 @@ from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
+from rest_auth.tests.urls import FacebookLogin
+
 urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name='pages/home.html'), name='home'),
     url(r'^about/$', TemplateView.as_view(template_name='pages/about.html'), name='about'),
@@ -19,6 +21,8 @@ urlpatterns = [
     # Third-party apps urls
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^rest-auth/', include('rest_auth.urls')),
+    url(r'^rest-auth/registration/', include('rest_auth.registration.urls')),
+    url(r'^rest-auth/facebook/$', FacebookLogin.as_view(), name='fb_login'),
 
     # Your stuff: custom urls includes go here
     url(r'^api/', include('api.urls', namespace='api')),
