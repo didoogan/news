@@ -15,5 +15,5 @@ class ArticleViewSet(viewsets.ModelViewSet):
 
 
 class ArticleItemViewSet(viewsets.ModelViewSet):
-    serializer_class = ArticleSerializer
+    serializer_class = ArticleItemSerializer
     queryset = ArticleItem.objects.all()

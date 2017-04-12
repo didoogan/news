@@ -57,6 +57,7 @@ THIRD_PARTY_APPS = [
     'rest_auth',
     'rest_auth.registration',
     'allauth.socialaccount.providers.facebook',
+    'corsheaders',
 
 ]
 
@@ -86,6 +87,7 @@ REST_FRAMEWORK = {
 # ------------------------------------------------------------------------------
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -96,9 +98,10 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_ALLOW_ALL = False
-CORS_ORIGIN_WHITELIST = ()
-# MIGRATIONS CONFIGURATION
+CORS_ORIGIN_WHITELIST = ('127.0.0.1:4200', 'http://c1fcfd25.ngrok.io', 'c1fcfd25.ngrok.io')
+ALLOWED_HOSTS = ['72ad45e3.ngrok.io', 'c1fcfd25.ngrok.io', '127.0.0.1', 'e8cb19f9.ngrok.io', 'http://c1fcfd25.ngrok.io']
 # ------------------------------------------------------------------------------
+# MIGRATIONS CONFIGURATION
 MIGRATION_MODULES = {
     'sites': 'news.contrib.sites.migrations'
 }

@@ -11,7 +11,7 @@ class TextFieldSerializer(serializers.ModelSerializer):
 
 
 class ArticleSerializer(serializers.ModelSerializer):
-    fields = TextFieldSerializer(read_only=True, many=True)
+    # fields = TextFieldSerializer(read_only=True, many=True)
 
     class Meta:
         model = Article
@@ -24,4 +24,8 @@ class ArticleItemSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ArticleItem
-        fields = '__all__'
+        fields = [
+            'article',
+            'field',
+            'content'
+        ]

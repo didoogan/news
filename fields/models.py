@@ -45,18 +45,18 @@ class TextField(CommonField):
     ]
     GENERIC_FAMILY_CHOICE = [
         ('serif', 'serif'),
-        ('sans-serif', 'sans-seri'),
+        ('sans-serif', 'sans-serif'),
         ('cursive', 'cursive'),
         ('fantasy', 'fantasy'),
         ('monospace', 'monospace')
     ]
 
-    font_size = models.IntegerField(default=12)
+    font_size = models.CharField(max_length=15, default='12px')
     font_family = models.CharField(max_length=20, choices=FONT_FAMILY_CHOICE, default='Arial')
     generic_family = models.CharField(max_length=10, choices=GENERIC_FAMILY_CHOICE, default='serif')
     italic = models.BooleanField(default=False)
     bold = models.BooleanField(default=False)
-    color = models.CharField(max_length=15, default='black')
+    color = models.CharField(max_length=15, default='Black')
 
 
 class Article(models.Model):
@@ -75,4 +75,4 @@ class ArticleItem(models.Model):
     content = models.CharField(max_length=500)
 
     def __str__(self):
-        return self.article
+        return self.article.title
